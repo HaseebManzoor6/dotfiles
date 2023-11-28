@@ -1,0 +1,14 @@
+.netrwhist
+.netrwhist~
+*.swp
+
+.vim/compiler/*
+.vim/doc/*
+keymap/*
+.vim/plugged/*
+.vim/plugin/*
+
+.vim/local.vim
+
+.vim/colors/*
+!/.vim/colors/cool.vim
