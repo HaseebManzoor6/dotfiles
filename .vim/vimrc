@@ -12,6 +12,9 @@ inoremap <C-S>		<Esc>:update<CR>gi
 "    cmap <C-V>		<C-R>+
 "endif
 " --------------------
+" fast scrolling
+nnoremap <Up> <C-y>
+nnoremap <Down> <C-e>
 
 command W w
 command Q q
