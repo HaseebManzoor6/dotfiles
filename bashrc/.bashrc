@@ -69,7 +69,12 @@ then
 fi
 
 # icons
-use_icons=yes # if no, use ASCII only in the prompt
+if [[ -f ~/.prompt_icons ]]
+then
+	use_icons=yes # if no, use ASCII only in the prompt
+else
+	use_icons=no
+fi
 if [ "$use_icons" = yes ]
 then
     time+=$'\uf43a'

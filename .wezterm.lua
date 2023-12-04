@@ -17,8 +17,10 @@ local nice_colors = {
     {'Heetch Dark (base16)', 'Heetch Light (base16)'},
     {'Unikitty Dark (base16)', 'Unikitty Light (base16)'},
     'SeaShells',
-    'Pasque (base16)',
     {'Grayscale Dark (base16)', 'Grayscale Light (base16)'},
+	'Calamity',
+	'FunForrest',
+	{'rose-pine-moon','rose-pine-dawn'},
 }
 
 
