@@ -53,7 +53,7 @@ time=""
 path=""
 git_branch=""
 git_changed='*'
-sep='>'
+sep='$'
 
 # colors
 time_color='\033[90m'
