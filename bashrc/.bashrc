@@ -69,13 +69,8 @@ then
 fi
 
 # icons
+# if no, use ASCII only in the prompt
 if [[ -f ~/.prompt_icons ]]
-then
-	use_icons=yes # if no, use ASCII only in the prompt
-else
-	use_icons=no
-fi
-if [ "$use_icons" = yes ]
 then
     time+=$'\uf43a'
     path+=$'\uf114 '
@@ -83,7 +78,8 @@ then
     git_changed=$'*'
     #sep=$'\uf138'
     #sep=$'\uf460'
-    sep=$'\ue691'
+    #sep=$'\ue691'
+	sep='$'
 fi
 
 # content
@@ -114,7 +110,12 @@ else
 fi
 # function
 function prompt_fn() {
-    PS1=${time}
+	if [[ -f ~/.prompt_notime ]]
+	then
+		PS1=${time}
+	else
+		PS1=''
+	fi
 	$prompt_git_fn
     PS1+="${path}${sep}\[${reset}\] "
 }

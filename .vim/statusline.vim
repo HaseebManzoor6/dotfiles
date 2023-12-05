@@ -18,8 +18,9 @@ let s:sep2=''
 
 " Change the seperator characters
 " You might want to do this in another file, (in your .gitignore if you
-" | have your vimrc in a repo) as unicode characters are not
-" | available on all terminals
+"  have your vimrc in a repo) as unicode characters are not
+"  available on all terminals
+"  i.e. in local.vim: call SLseps("\ue0b6","\ue0b4")
 function SLseps(l,r)
 	let s:sep1=a:l
 	let s:sep2=a:r

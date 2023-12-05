@@ -12,7 +12,7 @@ $script:ESC=[char]27
 $script:ICO_TIME=[char]0xf43a
 $script:ICO_PATH=[char]0xf114
 $script:ICO_BRANCH=[char]0xe725
-$script:ICO_PROMPT=[char]0xe691
+$script:ICO_PROMPT='$'
 #function PromptBoring { $savedexitcode=$lastexitcode; "[$(Get-Date -Format "hh:mm:ss")] $($executionContext.SessionState.Path.CurrentLocation)> "; $lastexitcode=$savedexitcode}
 function Prompt {
 	$script:savedexitcode=$global:lastexitcode

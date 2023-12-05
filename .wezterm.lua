@@ -20,7 +20,7 @@ local nice_colors = {
     {'Grayscale Dark (base16)', 'Grayscale Light (base16)'},
 	'Calamity',
 	'FunForrest',
-	{'rose-pine-moon','rose-pine-dawn'},
+	{'Rosé Pine Moon (Gogh)','Rosé Pine Dawn (base16)'},
 }
 
 
