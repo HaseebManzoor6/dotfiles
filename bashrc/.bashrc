@@ -112,9 +112,9 @@ fi
 function prompt_fn() {
 	if [[ -f ~/.prompt_notime ]]
 	then
-		PS1=${time}
-	else
 		PS1=''
+	else
+		PS1=${time}
 	fi
 	$prompt_git_fn
     PS1+="${path}${sep}\[${reset}\] "
