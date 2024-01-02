@@ -1,0 +1,54 @@
+/* This is the CSS file I use with my mdnote.vim script.
+ * Convert markdown to pretty HTML!
+ */
+
+:root {
+	--background: #222224;
+	--primary: #00eeff;
+	--secondary: #bbeeff;
+
+	--codebg: #171717;
+}
+
+a {
+	color: cyan;
+}
+
+body {
+	background-color: var(--background);
+}
+
+html {
+	font-family: "Ubuntu Nerd Font", sans-serif;
+	color: #ffffff;
+}
+
+code {
+	font-family: "JetBrainsMono NF", monospace;
+	background-color: var(--codebg);
+	/* color: #001122;
+	background-color: #000000;
+	border: 1px solid #ffffff;
+	border-radius: 5px;
+	padding: 1px;*/
+}
+
+h1 {
+	color: var(--primary);
+}
+
+h2 { color: var(--secondary); }
+
+pre {
+    background: var(--codebg);
+    border-left: 3px solid var(--primary);
+    color: #ffffff;
+    page-break-inside: avoid;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+}
