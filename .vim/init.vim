@@ -125,13 +125,9 @@ if exists('plug#begin')
     call plug#end()
 endif
 
-augroup tex
-	autocmd BufEnter * runtime tex.vim
-augroup END
-
 " --- Templates ---
 " Templates for new files. Make sure the template files exist!
-let templatedir=$HOME."\\vimfiles\\templates"
+let templatedir=$HOME."/.vim/templates"
 augroup templates
     autocmd BufNewFile *.* call LoadTemplate(templatedir)
 augroup END

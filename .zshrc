@@ -63,13 +63,26 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 # End of lines from arch wiki
 
-
 # Prompt
 PS1="%n %~\$ "
 # Right Prompt
 RPS1=%F{red}%(?..%?)%f
 
-# Aliases
+# -- manpage colors --
+function man() {
+	export GROFF_NO_SGR=1
+	export LESS_TERMCAP_mb=$'\e[1;32m'
+	export LESS_TERMCAP_md=$'\e[1;32m'
+	export LESS_TERMCAP_me=$'\e[0m'
+	export LESS_TERMCAP_se=$'\e[0m'
+	export LESS_TERMCAP_so=$'\e[01;33m'
+	export LESS_TERMCAP_ue=$'\e[0m'
+	export LESS_TERMCAP_us=$'\e[1;4;31m'
+
+	command man "$@"
+}
+
+# -- Aliases --
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -80,6 +93,22 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 alias ll='ls -alF'
 
+alias pacman='pacman --color=auto'
+
 alias vi='nvim'
+
+# map py -> local python
+alias py='pyenv exec python'
+alias pip='py -m pip'
+
 alias la='ls -A'
 alias l='ls -CF'
+
+alias bat='bat'
+alias cat='bat -pp'
+
+# Extension aliases
+alias -s {txt,vim}='nvim'
+alias -s {png,jpg,bmp}='feh'
+alias -s md='glow -p'
+alias -s {html,pdf}='firefox'

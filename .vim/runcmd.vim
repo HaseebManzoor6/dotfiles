@@ -8,10 +8,10 @@ function Autorun()
 		T py %
 	elseif ft ==# 'html'
 		w
-		!"C:\Program Files\Mozilla Firefox\firefox.exe" %:p
+		!firefox %:p
 	elseif ft ==# 'cpp' || ft ==# 'c' || ft ==# 'make'
 		w
-		T "mingw32-make.exe"
+		T "make"
 	elseif ft ==# 'dosbatch'
         w
         !%
@@ -21,7 +21,7 @@ function Autorun()
     elseif ft ==# 'plaintex' || ft ==# 'tex'
         w
         execute '!pdflatex "'.expand("%:p").'"'
-        execute '!."' . expand("%:p:r") . '.pdf"'
+        execute '!"' . expand("%:p:r") . '.pdf"'
     else
         echo "You didn't write a script for this filetype :("
 	endif

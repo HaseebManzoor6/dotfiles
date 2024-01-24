@@ -7,6 +7,8 @@
 -- polybar
 --
 -- xbacklight (brightness, optional)
+-- flameshot (screenshots, optional)
+-- volumeicon (audio keys, optional)
 -- kitty (Terminal; can be changed below)
 
 import XMonad
@@ -51,14 +53,20 @@ myConfig = def
     , focusedBorderColor = "#AFAFAF"
 	} `additionalKeys`
         [ ((modmask, xK_f), spawn "firefox")
+
         -- Brightness Keys
         , ((0, xF86XK_MonBrightnessDown), spawn "if [[ \"$(xbacklight -get)\" -le 10 ]]; then xbacklight -set 10; else xbacklight -dec 10; fi")
         , ((0, xF86XK_MonBrightnessUp), spawn "xbacklight -inc 10")
+
         -- Screenshot (Mod+s)
-        --, ((modmask, xK_s), spawn "scrot $HOME/Screenshots/$(date +%y-%m-%d-%H-%M-%S-%N)")
-        , ((modmask, xK_s), spawn "scrot -s -f -p -F $HOME/Screenshots/$(date +%y-%m-%d-%H-%M-%S-%N)")
-        -- Lock (Mod+s)
+        --, ((modmask, xK_s), spawn "scrot -s -f -p -F $HOME/Screenshots/$(date +%y-%m-%d-%H-%M-%S-%N)")
+        , ((modmask, xK_s), spawn "flameshot gui")
+
+        -- Lock (Mod+Shift+L)
         , ((modmask .|. shiftMask, xK_l), spawn "systemctl suspend")
+
+        -- dmenu
+        , ((modmask, xK_p), spawn "dmenu_run -fn 'JetBrainsMono NFM' -b")
         ]
     where
       modmask = mod4Mask
@@ -66,7 +74,7 @@ myConfig = def
 myStartupHook = do
     --spawnOnce "nm-applet"
     spawnOnce "volumeicon"
-    spawnOnce "xscreensaver -no-splash"
+    --spawnOnce "xscreensaver -no-splash"
 
 myLayouts = smartBorders tiled ||| Mirror tiled ||| noBorders Full
   where
@@ -84,31 +92,3 @@ myManageHook = composeAll
 myLogHook :: X ()
 myLogHook = fadeInactiveLogHook fadeAmount
   where fadeAmount = 0.8
-
-myXmobarPP :: PP
-myXmobarPP = def
-    { ppSep             = magenta " • "
-    , ppTitleSanitize   = xmobarStrip
-    , ppCurrent         = wrap " " "" . xmobarBorder "Top" "#8be9fd" 2
-    , ppHidden          = white . wrap " " ""
-    , ppHiddenNoWindows = lowWhite . wrap " " ""
-    , ppUrgent          = red . wrap (yellow "!") (yellow "!")
-    , ppOrder           = \[ws, l, _, wins] -> [ws, l, wins]
-    , ppExtras          = [logTitles formatFocused formatUnfocused]
-    }
-  where
-    formatFocused   = wrap (white    "[") (white    "]") . magenta . ppWindow
-    formatUnfocused = wrap (lowWhite "[") (lowWhite "]") . blue    . ppWindow
-
-    -- | Windows should have *some* title, which should not not exceed a
-    -- sane length.
-    ppWindow :: String -> String
-    ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 30
-
-    blue, lowWhite, magenta, red, white, yellow :: String -> String
-    magenta  = xmobarColor "#ff79c6" ""
-    blue     = xmobarColor "#bd93f9" ""
-    white    = xmobarColor "#f8f8f2" ""
-    yellow   = xmobarColor "#f1fa8c" ""
-    red      = xmobarColor "#ff5555" ""
-    lowWhite = xmobarColor "#bbbbbb" ""

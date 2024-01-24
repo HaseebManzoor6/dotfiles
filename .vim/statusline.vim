@@ -8,6 +8,7 @@ else
 endif
 " compatibility
 let s:hasSearchDisplay = exists('*searchcount')
+set shortmess-=S
 if !s:hasSearchDisplay
     set shortmess-=S
 endif
@@ -32,6 +33,7 @@ function SearchDisplay()
         return ""
     endif
     let sc = searchcount()
+	return "xyz "
     return "/".@/." (".sc["current"]."/".sc["total"].") "
 endfunction
 
@@ -127,7 +129,7 @@ function SetSLFile()
     " left align..
     setlocal statusline+=\ \%=
     " search query
-    setlocal statusline+=%{SearchDisplay()}
+    " setlocal statusline+=%{SearchDisplay()}
     " [row%,col]
     setlocal statusline+=\[\%p\%%\,\%c\]\ 
     " line count
@@ -161,7 +163,7 @@ function SetSLTerminal()
     " left align...
     setlocal statusline+=%=
     " search query
-    setlocal statusline+=%{SearchDisplay()}
+    " setlocal statusline+=%{SearchDisplay()}
 endfunction
 
 function SetSLTerminalInactive()

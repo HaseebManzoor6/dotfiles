@@ -10,7 +10,7 @@ fun tex#Env()
 	return '\begin{'.name."}\n\\end{".name."}\<Esc>O"
 endfun
 
-if &ft=='tex'
+fun tex#Shortcuts()
 	let mapleader='\'
 
 	" Environments
@@ -33,12 +33,16 @@ if &ft=='tex'
 	inoremap <buffer> <leader>-<Space> \subsection*{
 
 	" Math
+	inoremap <buffer> <leader>x<Space> \times{}
+	inoremap <buffer> <leader>* \cdot{}
 	inoremap <buffer> <leader>. \rightarrow{}
 	inoremap <buffer> <leader>, \leftarrow{}
 	inoremap <buffer> <leader>> \implies{}
 	inoremap <buffer> <leader>< \impliedby{}
 	inoremap <buffer> <leader>fr \frac{
 	inoremap <buffer> <leader>bb \mathbb{
+	inoremap <buffer> <leader>wh \widehat{
+	inoremap <buffer> <leader>~ \approx{}
 	inoremap <buffer><expr> <leader>su<Space> '\sum_{'.tex#Getstr('Bottom: ').'}^{'.tex#Getstr('Top: ').'}'
 	inoremap <buffer><expr> <leader>mat<Space> '\left[\begin{array}{'.tex#Getstr('Matrix Width: ')."}%\<CR>\\end{array}\\right]\<ESC>O%\<Left>"
 
@@ -49,5 +53,10 @@ if &ft=='tex'
 	inoremap <buffer> <leader>l<Space> \lambda{}
 	inoremap <buffer> <leader>0<Space> \theta{}
 	inoremap <buffer> <leader>d<Space> \Delta{}
+	inoremap <buffer> <leader>e<Space> \epsilon{}
 
+endfun
+
+if &ft=='tex'
+	call tex#Shortcuts()
 endif

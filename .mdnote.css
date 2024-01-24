@@ -4,12 +4,20 @@
 
 :root {
 	--background: #222224;
+	--background2: #171717;
+	--background3: #666;
+
 	--primary: #00eeff;
 	--secondary: #bbeeff;
 
-	--codebg: #171717;
+
+	--border: #444444;
 }
 
+h1.title {display: none;}
+
+
+/* URLs */
 a {
 	color: cyan;
 }
@@ -18,19 +26,17 @@ body {
 	background-color: var(--background);
 }
 
+@media screen and (min-width: 450px) {
+	body {
+		position: relative;
+		left: 30%;
+		max-width: 40%;
+	}
+}
+
 html {
 	font-family: "Ubuntu Nerd Font", sans-serif;
 	color: #ffffff;
-}
-
-code {
-	font-family: "JetBrainsMono NF", monospace;
-	background-color: var(--codebg);
-	/* color: #001122;
-	background-color: #000000;
-	border: 1px solid #ffffff;
-	border-radius: 5px;
-	padding: 1px;*/
 }
 
 h1 {
@@ -39,10 +45,16 @@ h1 {
 
 h2 { color: var(--secondary); }
 
-pre {
-    background: var(--codebg);
+/* Code Snippets */
+/* Inline */
+code {
+	font-family: "JetBrainsMono NF", monospace;
+	background-color: var(--background2);
+}
+
+/* Block */
+pre code {
     border-left: 3px solid var(--primary);
-    color: #ffffff;
     page-break-inside: avoid;
     line-height: 1.6;
     margin-bottom: 1.6em;
@@ -51,4 +63,38 @@ pre {
     padding: 1em 1.5em;
     display: block;
     word-wrap: break-word;
+}
+
+/* Tables */
+table, th, td {
+	border: 1px solid var(--border);
+	border-collapse: collapse;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: var(--background2);
+}
+
+tr:hover {
+	background-color: #666;
+}
+
+/* Quotes */
+blockquote {
+	background-color: var(--background2);
+    border-left: 3px solid var(--secondary);
+    page-break-inside: avoid;
+    line-height: 1.6;
+	margin-left: 1em;
+	padding-left: 1em;
+    max-width: 100%;
+    overflow: auto;
+    display: block;
+    word-wrap: break-word;
+}
+
+/* TOC */
+li {
+	padding: 0.3em;
 }
