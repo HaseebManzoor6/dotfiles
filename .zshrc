@@ -99,6 +99,7 @@ alias vi='nvim'
 
 # map py -> local python
 alias py='pyenv exec python'
+alias python='pyenv exec python'
 alias pip='py -m pip'
 
 alias la='ls -A'
