@@ -9,7 +9,7 @@
 -- xbacklight (brightness, optional)
 -- flameshot (screenshots, optional)
 -- volumeicon (audio keys, optional)
--- kitty (Terminal; can be changed below)
+-- alacritty (Terminal; can be changed below)
 
 import XMonad
 
@@ -47,7 +47,7 @@ myConfig = def
     , logHook = myLogHook
     , startupHook = myStartupHook
 
-	, terminal = "kitty"
+	, terminal = "alacritty"
 
     , normalBorderColor = "#121212"
     , focusedBorderColor = "#AFAFAF"

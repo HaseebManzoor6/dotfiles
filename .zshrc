@@ -64,9 +64,7 @@ zle -N down-line-or-beginning-search
 # End of lines from arch wiki
 
 # Prompt
-PS1="%n %~\$ "
-# Right Prompt
-RPS1=%F{red}%(?..%?)%f
+PS1="%n%F{red}%(?.. %?)%f %~\$ "
 
 # -- manpage colors --
 function man() {
@@ -91,7 +89,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
-alias ll='ls -alF'
+alias ll='ls -alFh'
 
 alias pacman='pacman --color=auto'
 
