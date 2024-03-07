@@ -63,7 +63,7 @@ highlight TabLineFill    cterm=NONE
 
 highlight CursorColumn   ctermbg=7
 highlight CursorLine     cterm=underline
-highlight MatchParen     ctermfg=4 cterm=underline
+highlight MatchParen     ctermfg=6 ctermbg=0 cterm=underline
 highlight Constant       ctermfg=1
 highlight Special        ctermfg=5
 highlight Identifier     cterm=NONE ctermfg=6
