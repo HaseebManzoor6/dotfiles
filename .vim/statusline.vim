@@ -14,13 +14,13 @@ if !s:hasSearchDisplay
 endif
 
 " Seperators
-let s:sep1=''
+let s:sep1='\|'
 let s:sep2=''
 
 " Change the seperator characters
 " You might want to do this in another file, (in your .gitignore if you
 "  have your vimrc in a repo) as unicode characters are not
-"  available on all terminals
+"  available on all terminals.
 "  i.e. in local.vim: call SLseps("\ue0b6","\ue0b4")
 function SLseps(l,r)
 	let s:sep1=a:l
@@ -75,11 +75,14 @@ function GetSLColors()
 
 	" Sep colors
 	" User1 -> User2
-	call s:Highlight('User4',mode,U1Fg,U2Fg,'NONE')
+	" call s:Highlight('User4',mode,U1Fg,U2Fg,'NONE')
+	hi User4 ctermfg=15
 	" User2 -> User3
-	call s:Highlight('User5',mode,U2Fg,U3Bg,'NONE')
+	" call s:Highlight('User5',mode,U2Fg,U3Bg,'NONE')
+	hi User5 ctermfg=15
 	" User1 -> User3
-	call s:Highlight('User6',mode,U1Fg,U3Bg,'NONE')
+	" call s:Highlight('User6',mode,U1Fg,U3Bg,'NONE')
+	hi User6 ctermfg=15
 endfunction
 
 function SetSL()
@@ -110,7 +113,7 @@ function SetSLFile()
 	if &ft!=""
 		" sep
 		setlocal statusline+=%4*
-		exec 'setlocal statusline+='.s:sep2
+		exec 'setlocal statusline+='.s:sep1
 		" color
 		setlocal statusline+=%2*
 		" filetype

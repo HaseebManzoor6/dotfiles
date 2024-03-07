@@ -8,8 +8,9 @@ let colors_name="cool"
 
 highlight TrailingWhitespace ctermfg=1 cterm=reverse
 
-highlight User1        ctermfg=14 cterm=reverse,bold
-highlight User2        ctermfg=13 cterm=reverse,bold
+highlight User1        ctermfg=6
+highlight User2        ctermfg=6
+highlight User3        ctermfg=7
 
 highlight DiffAdd      ctermfg=0    ctermbg=2
 highlight DiffChange   ctermfg=0    ctermbg=3
@@ -23,7 +24,7 @@ highlight IncSearch    ctermfg=1    ctermbg=NONE cterm=reverse
 
 highlight LineNr       ctermfg=8
 highlight CursorLineNr ctermfg=7
-highlight Comment      ctermfg=8
+highlight Comment      ctermfg=8    cterm=italic
 highlight ColorColumn  ctermfg=7    ctermbg=8
 highlight Folded       ctermfg=7    ctermbg=8
 highlight FoldColumn   ctermfg=7    ctermbg=8
@@ -62,7 +63,7 @@ highlight TabLineFill    cterm=NONE
 
 highlight CursorColumn   ctermbg=7
 highlight CursorLine     cterm=underline
-highlight MatchParen     ctermbg=14
+highlight MatchParen     ctermfg=4 cterm=underline
 highlight Constant       ctermfg=1
 highlight Special        ctermfg=5
 highlight Identifier     cterm=NONE ctermfg=6
